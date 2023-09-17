@@ -1,0 +1,37 @@
+﻿@using WebApplication1.ViewModels.Users;
+@model List<UserViewModel>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UserList</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <td>User Name</td>
+                <td>Email</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model)
+            {
+                <tr>
+                    <td>@item.UserName</td>
+                    <td>@item.Email</td>
+                    <td><a asp-action="AddUpdateUser" asp-route-Id="@item.Id">Edit</a></td>
+                    <td><a asp-action="Delete" asp-route-Id="@item.Id">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </Table>
+</body>
+</html>

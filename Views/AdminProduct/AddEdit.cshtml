@@ -1,0 +1,54 @@
+﻿@using WebApplication1.ViewModels.Products
+@using WebApplication1.ViewModels.Categories
+@using WebApplication1.ViewModels.Vendors
+@model ProductAddEditViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddEdit</title>
+</head>
+<body>
+    <form method="post">
+        <input type="hidden" asp-for="Id" />
+        <div>
+            <label>
+                Name
+                <input asp-for="Name" />
+            </label>
+        </div>
+        <div>
+            <label>
+                Color
+                <input asp-for="Color" />
+            </label>
+        </div>
+        <div>
+            <label>Please select Category</label>
+            <select asp-for="CategoryId">
+                <option>---Please select---</option>
+                @foreach(CategoryDropdownViewModel item in ViewBag.Category)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+        </div>
+        <div>
+            <label>Please select Vendor</label>
+            <select asp-for="VendorId">
+                <option>---Please select---</option>
+                @foreach(VendorDropdownViewModel item in ViewBag.Vendor)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+        </div>
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html> 

@@ -1,0 +1,27 @@
+﻿@using WebApplication1.ViewModels.Users;
+@model LoginViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+</head>
+<body>
+    <form method="post">
+        <div>
+            <label asp-for="UserName">UserName</label>
+            <input asp-for="UserName"/>
+        </div>
+        <div>
+            <label asp-for="Password">Password</label>
+            <input type="password" asp-for="Password" />
+        </div>
+        <button type="submit">Sign in</button>
+    </form>
+</body>
+</html>
