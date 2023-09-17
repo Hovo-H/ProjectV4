@@ -10,5 +10,6 @@ namespace WebApplication1.Services.Interfaces
         public int Update(UserViewModel model);
         public UserViewModel GetById(int Id);
         public List<UserViewModel> GetAllUsers();
+        public bool Login(LoginViewModel model);
     }
 }

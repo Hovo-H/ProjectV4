@@ -25,6 +25,13 @@ namespace WebApplication1.Services
             _userRepository.Add(Entity);
             return Entity.Id;
         }
+        public bool Login(LoginViewModel model)
+        {
+            var existUser = _userRepository.GetAll().Any(x => (x.UserName == model.UserName ||
+                                                               x.Email == model.UserName) &&
+                                                               x.Password == model.Password);
+            return existUser;
+        }
 
         public void Delete(int Id)
         {

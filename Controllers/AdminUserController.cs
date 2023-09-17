@@ -29,6 +29,11 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Login(LoginViewModel model)
+        {
+            return View();
+        }
 
         [HttpGet]
         public IActionResult UserList()
@@ -59,7 +64,7 @@ namespace WebApplication1.Controllers
             {
                 _userService.Add(model);
             }
-            return View();
+            return RedirectToAction("UserList");
         }
     }
 }
