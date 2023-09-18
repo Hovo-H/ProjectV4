@@ -32,7 +32,10 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public IActionResult Login(LoginViewModel model)
         {
-            return View();
+            if (_userService.Login(model))
+            {
+                return RedirectToAction("Index","Home");
+            }return View();
         }
 
         [HttpGet]
@@ -48,13 +51,13 @@ namespace WebApplication1.Controllers
             return View(model);
         }
         [HttpGet]
-        public IActionResult AddUpdateUser(int? Id)
+        public IActionResult Register(int? Id)
         {
             UserViewModel model = Id.HasValue ? _userService.GetById(Id.Value) : new UserViewModel();
             return View(model);
         }
         [HttpPost]
-        public IActionResult AddUpdateUser(UserViewModel model)
+        public IActionResult Register(UserViewModel model)
         {
             if (model.Id > 0)
             {
