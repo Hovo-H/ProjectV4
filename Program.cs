@@ -20,13 +20,15 @@ namespace WebApplication1
             builder.Services.AddScoped<IProductRepository, ProductRepository>();
             builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
             builder.Services.AddScoped<IUserRepository, UserRepository>();
-            builder.Services.AddScoped<IVendorRepository, VendorRepository>();
+			builder.Services.AddScoped<IAdminRepository, AdminRepository>();
+			builder.Services.AddScoped<IVendorRepository, VendorRepository>();
             builder.Services.AddScoped<IProductService, ProductService>();
             builder.Services.AddScoped<ICategoryService, CategoryService>();
             builder.Services.AddScoped<IVendorService, VendorService>();
             builder.Services.AddScoped<IUserService, UserService>();
+			builder.Services.AddScoped<IAdminService, AdminService>();
 
-            var app = builder.Build();
+			var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())

@@ -21,6 +21,7 @@ namespace WebApplication1.Services
                 UserName = model.UserName,
                 Email = model.Email,
                 Password = model.Password,
+                CreatedDate = DateTime.Now,
             };
             _userRepository.Add(Entity);
             return Entity.Id;
@@ -47,7 +48,8 @@ namespace WebApplication1.Services
                 Id = x.Id,  
                 UserName = x.UserName,
                 Email = x.Email,
-                Password = x.Password
+                Password = x.Password,
+                CreatedDate = x.CreatedDate,
             }).ToList();
         }
         public UserViewModel GetById(int Id)

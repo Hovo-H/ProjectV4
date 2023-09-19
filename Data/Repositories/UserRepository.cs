@@ -24,6 +24,7 @@ namespace WebApplication1.Data.Repositories
 
         public List<User> GetAll()
         {
+            
             return _context.Users.ToList();
         }
 
