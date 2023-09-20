@@ -1,6 +1,9 @@
 ﻿using WebApplication1.Services.Interfaces;
 using WebApplication1.ViewModels.Categories;
 using WebApplication1.Data.Repositories.Interfaces;
+using WebApplication1.Data.Entities;
+using WebApplication1.Data.Repositories;
+using WebApplication1.ViewModels.Users;
 
 namespace WebApplication1.Services
 {
@@ -19,6 +22,29 @@ namespace WebApplication1.Services
                 Id = c.Id,
                 Name = c.Name,
             }).ToList();
+        }
+        public int Add(CategoryDropdownViewModel model)
+        {
+            Category category = new Category()
+            {
+                Name = model.Name,
+            };
+            _categoryRepository.Add(category);
+            return category.Id;
+        }
+        public void Delete(int Id)
+        {
+            var entity = _categoryRepository.GetById(Id);
+            _categoryRepository.Delete(entity);
+        }
+        public CategoryDropdownViewModel GetById(int Id)
+        {
+            var entity = _categoryRepository.GetById(Id);
+            return new CategoryDropdownViewModel
+            {
+                Id = entity.Id,
+                Name = entity.Name,
+            };
         }
     }
 }

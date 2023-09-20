@@ -20,6 +20,10 @@ namespace WebApplication1.Services
                 Name = model.Name,
                 CategoryId = model.CategoryId,
                 VendorId = model.VendorId,
+                Description = model.Description,
+                GbSize = model.GbSize,
+                Ram = model.Ram,
+                ImageUrl = model.ImageUrl,
                 Color = model.Color
             };
             _productRepository.Add(product);
@@ -40,6 +44,9 @@ namespace WebApplication1.Services
                 Id = entity.Id,
                 Name = entity.Name,
                 Color = entity.Color,
+                ImageUrl= entity.ImageUrl,
+                GbSize= entity.GbSize,
+                Ram= entity.Ram,
                 CategoryId = entity.CategoryId,
                 VendorId = entity.VendorId
             };
@@ -52,6 +59,9 @@ namespace WebApplication1.Services
             entity.Color = model.Color;
             entity.CategoryId = model.CategoryId;
             entity.VendorId = model.VendorId;
+            entity.GbSize = model.GbSize;
+            entity.Ram = model.Ram;
+            entity.ImageUrl = model.ImageUrl;
             return entity.Id;
         }
     }

@@ -27,8 +27,8 @@ namespace WebApplication2.Controllers
         [HttpGet]
         public IActionResult AddEdit(int? id)
         {
-            ViewBag.Category = _categoryService.GetListForDropdown();
-            ViewBag.Vendor = _vendorService.GetListForDropdown();
+            ViewBag.Categories = _categoryService.GetListForDropdown();
+            ViewBag.Vendors = _vendorService.GetListForDropdown();
             ProductAddEditViewModel model = id.HasValue ?
                 _productService.GetById(id.Value) :
                 new ProductAddEditViewModel();
