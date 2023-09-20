@@ -24,11 +24,21 @@ namespace WebApplication2.Controllers
         {
             return View();
         }
+        public IActionResult list()
+        {
+            return View();
+        }
+        [HttpGet]
+        public IActionResult ProductList()
+        {
+            var model = _productService.GetAllProducts();
+            return View(model);
+        }
         [HttpGet]
         public IActionResult AddEdit(int? id)
         {
-            ViewBag.Category = _categoryService.GetListForDropdown();
-            ViewBag.Vendor = _vendorService.GetListForDropdown();
+            ViewBag.Categories = _categoryService.GetListForDropdown();
+            ViewBag.Vendors = _vendorService.GetListForDropdown();
             ProductAddEditViewModel model = id.HasValue ?
                 _productService.GetById(id.Value) :
                 new ProductAddEditViewModel();
@@ -37,8 +47,8 @@ namespace WebApplication2.Controllers
         [HttpPost]
         public IActionResult AddEdit(ProductAddEditViewModel model)
         {
-            ViewBag.Category = _categoryService.GetListForDropdown();
-            ViewBag.Vendor = _vendorService.GetListForDropdown();
+            ViewBag.Categories = _categoryService.GetListForDropdown();
+            ViewBag.Vendors = _vendorService.GetListForDropdown();
             if (model.Id > 0)
             {
                 _productService.Update(model);
@@ -48,6 +58,12 @@ namespace WebApplication2.Controllers
                 _productService.Add(model);
             }
             return View();
+        }
+        [HttpGet]
+        public IActionResult Delete(int Id)
+        {
+            _productService.Delete(Id);
+            return RedirectToAction("Index","Home");
         }
     }
 }

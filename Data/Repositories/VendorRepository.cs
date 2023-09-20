@@ -14,5 +14,25 @@ namespace WebApplication1.Data.Repositories
         {
             return _context.Vendors.ToList();
         }
+        public void Add(Vendor vendor)
+        {
+            _context.Vendors.Add(vendor);
+            _context.SaveChanges();
+        }
+
+        public void Delete(Vendor vendor)
+        {
+            _context.Vendors.Remove(vendor);
+            _context.SaveChanges();
+        }
+        public Vendor GetById(int id)
+        {
+            return _context.Vendors.Find(id);
+        }
+
+        public void SaveChanges()
+        {
+            _context.SaveChanges();
+        }
     }
 }

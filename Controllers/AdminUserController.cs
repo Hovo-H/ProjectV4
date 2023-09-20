@@ -67,7 +67,7 @@ namespace WebApplication1.Controllers
             {
                 _userService.Add(model);
             }
-            return RedirectToAction("UserList");
+            return RedirectToAction("Index","Home");
         }
     }
 }

@@ -8,5 +8,7 @@ namespace WebApplication1.Services.Interfaces
         public void Delete(int Id);
         public int Update(ProductAddEditViewModel model);
         public ProductAddEditViewModel GetById(int Id);
+        public List<ProductAddEditViewModel> GetAllProducts();
+
     }
 }
