@@ -1,5 +1,6 @@
 ﻿using WebApplication1.Data;
 using WebApplication1.Data.Entities;
+using WebApplication1.Data.Repositories;
 using WebApplication1.Data.Repositories.Interfaces;
 using WebApplication1.Services.Interfaces;
 using WebApplication1.ViewModels.Products;
@@ -18,6 +19,7 @@ namespace WebApplication1.Services
             Product product = new Product()
             {
                 Name = model.Name,
+                Price = model.Price,
                 CategoryId = model.CategoryId,
                 VendorId = model.VendorId,
                 Description = model.Description,
@@ -36,6 +38,24 @@ namespace WebApplication1.Services
             _productRepository.Delete(entity);
         }
 
+        public List<ProductAddEditViewModel> GetAllProducts()
+        {
+            var products = _productRepository.GetAll();
+            return products.Select(x => new ProductAddEditViewModel
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Price = x.Price,
+                CategoryId = x.CategoryId,
+                VendorId = x.VendorId,
+                Description = x.Description,
+                GbSize = x.GbSize,
+                Ram = x.Ram,
+                ImageUrl = x.ImageUrl,
+                Color = x.Color
+            }).ToList();
+        }
+
         public ProductAddEditViewModel GetById(int Id)
         {
             var entity = _productRepository.GetById(Id);
@@ -44,9 +64,15 @@ namespace WebApplication1.Services
                 Id = entity.Id,
                 Name = entity.Name,
                 Color = entity.Color,
+
+                ImageUrl = entity.ImageUrl,
+                GbSize = entity.GbSize,
+                Ram = entity.Ram,
+
                 ImageUrl= entity.ImageUrl,
                 GbSize= entity.GbSize,
                 Ram= entity.Ram,
+
                 CategoryId = entity.CategoryId,
                 VendorId = entity.VendorId
             };

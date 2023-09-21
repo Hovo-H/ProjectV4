@@ -27,6 +27,9 @@ namespace WebApplication1.Services
         {
             Category category = new Category()
             {
+
+                Id = model.Id,
+
                 Name = model.Name,
             };
             _categoryRepository.Add(category);

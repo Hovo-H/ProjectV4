@@ -21,6 +21,10 @@
     <!-- Title Page-->
     <title>Au Register Forms by Colorlib</title>
     <!-- Main CSS-->
+
+
+
+
     <link href="/css/ma1n.css" rel="stylesheet" media="all">
     <title>Product</title>
 </head>
@@ -41,7 +45,11 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Price</label>
+
+                                    <input asp-for="Price"  class="input--style-4">
+
                                     <input class="input--style-4"asp-for="Price">
+
                                 </div>
                             </div>
                         </div>
@@ -98,7 +106,11 @@
                         <div class="input-group">
                             <label class="label">Category</label>
                             <div class="rs-select2 js-select-simple select--no-search">
+
+                                <select asp-for="CategoryId">
+
                                 <select name="subject">
+
                                     <option disabled="disabled" selected="selected">Choose option</option>
                                     @foreach (var item in ViewBag.Categories)
                                     {
@@ -109,7 +121,11 @@
                             </div>
                             <label class="label">Vendor</label>
                             <div class="rs-select2 js-select-simple select--no-search">
+
+                                <select asp-for="VendorId">
+
                                 <select name="subject">
+
                                     <option disabled="disabled" selected="selected">Choose option</option>
                                     @foreach (var item in ViewBag.Vendors)
                                     {
