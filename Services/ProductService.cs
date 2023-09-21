@@ -64,9 +64,15 @@ namespace WebApplication1.Services
                 Id = entity.Id,
                 Name = entity.Name,
                 Color = entity.Color,
+
                 ImageUrl = entity.ImageUrl,
                 GbSize = entity.GbSize,
                 Ram = entity.Ram,
+
+                ImageUrl= entity.ImageUrl,
+                GbSize= entity.GbSize,
+                Ram= entity.Ram,
+
                 CategoryId = entity.CategoryId,
                 VendorId = entity.VendorId
             };

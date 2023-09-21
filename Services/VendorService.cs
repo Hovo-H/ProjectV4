@@ -27,7 +27,10 @@ namespace WebApplication1.Services
             Vendor vendor = new Vendor()
             {
                 Name = model.Name,
+
                 Id = model.Id,
+
+
             };
             _vendorRepository.Add(vendor);
             return vendor.Id;
